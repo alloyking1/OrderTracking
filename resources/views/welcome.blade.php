@@ -208,6 +208,7 @@
     </section>
     </div>
 
+  
   @include('includes.footer')
   
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBy_A3VpejganUr-8YFp_pd1T6GVGJaJ2k&callback=initMap" type="text/javascript"></script>

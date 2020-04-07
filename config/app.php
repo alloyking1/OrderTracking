@@ -175,6 +175,13 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        // twilio
+        // 'twilio' => [
+        //     'TWILIO_AUTH_TOKEN'  => env('TWILIO_AUTH_TOKEN'),
+        //     'TWILIO_ACCOUNT_SID' => env('TWILIO_ACCOUNT_SID'),
+        //     'TWILIO_APP_SID'     => env('TWILIO_APP_SID')
+        // ],
+
     ],
 
     /*
@@ -225,6 +232,12 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        // twilio
+        'twilio' => [
+            'TWILIO_AUTH_TOKEN'  => env('TWILIO_AUTH_TOKEN'),
+            'TWILIO_ACCOUNT_SID' => env('TWILIO_ACCOUNT_SID'),
+            'TWILIO_APP_SID'     => env('TWILIO_APP_SID')
+        ],
 
     ],
 

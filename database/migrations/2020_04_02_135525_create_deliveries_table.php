@@ -23,6 +23,7 @@ class CreateDeliveriesTable extends Migration
             $table->string('CurrentLocation');
             $table->float('Lng');
             $table->float('Lat');
+            $table->string('Phone');
             $table->boolean('OrderStatus');
             $table->timestamps();
         });

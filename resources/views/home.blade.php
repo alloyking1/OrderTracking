@@ -120,6 +120,14 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="num" class="col-md-4 col-form-label text-md-right">{{ __('Receiver Phone Num') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="phone" type="number" class="form-control" name="phone" placeholder="Enter number in foreing format (+XX)" >
+                            </div>
+                        </div>
+
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

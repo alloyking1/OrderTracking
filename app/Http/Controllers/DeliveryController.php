@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Delivery;
 use Illuminate\Support\Facades\Redirect;
 
+use Twilio\Rest\Client;
+use Twilio\Jwt\ClientToken;
+
 class DeliveryController extends Controller
 {
     /**
@@ -20,6 +23,7 @@ class DeliveryController extends Controller
             'deliveredWithin' => ['required', 'string'],
             'lng' => ['required'],
             'lat' => ['required'],
+            'phone' => ['required', 'max:255'],
             'currentLocation' => ['required', 'string'],
         ]);   
 
@@ -36,9 +40,15 @@ class DeliveryController extends Controller
             'DeliveredWith' => $request->get('deliveredWithin'),
             'Lng' => $request->get('lng'),
             'Lat' => $request->get('lat'),
+            'Phone' => $request->get('phone'),
             'CurrentLocation' => $request->get('currentLocation'),
             'OrderStatus' => 0
         ]);
+
+        // send sms
+        $this->sendSms($request->get('trackingNum'), $request->get('phone'));
+
+        // send email
 
         return Redirect::back()->with('success','Order added!');
     }
@@ -108,13 +118,37 @@ class DeliveryController extends Controller
         $characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
         // generate a pin based on 2 * 7 digits + a random character
-        $pin = mt_rand(1000000, 9999999)
-            . mt_rand(1000000, 9988765)
-            . $characters[rand(0, strlen($characters) - 1)];
+        $pin = $characters[rand(0, strlen($characters) - 1)]
+            . mt_rand(1000000, 9988765).mt_rand(1000000, 9999999);
 
         // shuffle the result
         $string = str_shuffle($pin);
         return $string;
+    }
+
+    /***/ 
+    private function sendSms($trakcingCode, $phonNumber)
+    {
+        $accountSid = env('TWILIO_ACCOUNT_SID');
+        $authToken  = env('TWILIO_AUTH_TOKEN');
+        $phonNumberInt = '+'.$phonNumber;
+
+        $client = new Client($accountSid, $authToken);
+        try
+        {
+            // Use the client to do fun stuff like send text messages!
+            $client->messages->create($phonNumberInt, array(
+                    // A Twilio phone number you purchased at twilio.com/console
+                    'from' => '+14242915206',
+                    // the body of the text message you'd like to send
+                    'body' => 'Howdy! Your order is created. Here is your trakcing code: '.$trakcingCode
+                )
+         );
+        }
+        catch (Exception $e)
+        {
+            echo "Error: " . $e->getMessage();
+        }
     }
     
 }
