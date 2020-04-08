@@ -127,6 +127,23 @@
                                 <input id="phone" type="number" class="form-control" name="phone" placeholder="Enter number in foreing format (+XX)" >
                             </div>
                         </div>
+                        
+                        <div class="form-group row">
+                            <label for="orderEmail" class="col-md-4 col-form-label text-md-right">{{ __('Receiver Email') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="orderEmail" type="email" class="form-control" name="orderEmail" placeholder="Enter receiver Email" >
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="RFullName" class="col-md-4 col-form-label text-md-right">{{ __('Receiver Full Name') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="RFullName" type="text" class="form-control" name="RFullName" placeholder="Enter receiver Full Name" >
+                            </div>
+                        </div>
+                        
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">

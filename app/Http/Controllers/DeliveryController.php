@@ -6,8 +6,13 @@ use Illuminate\Http\Request;
 use App\Delivery;
 use Illuminate\Support\Facades\Redirect;
 
+// sms
 use Twilio\Rest\Client;
 use Twilio\Jwt\ClientToken;
+
+// email
+use Illuminate\Support\Facades\Mail;
+use App\Mail\OrderCreated;
 
 class DeliveryController extends Controller
 {
@@ -24,8 +29,11 @@ class DeliveryController extends Controller
             'lng' => ['required'],
             'lat' => ['required'],
             'phone' => ['required', 'max:255'],
+            'orderEmail' => ['required', 'email'],
+            'RFullName' => ['required', 'string'],
             'currentLocation' => ['required', 'string'],
         ]);   
+
 
         if($validate->fails()){
             return response()->json($validate->errors()->toJson());
@@ -41,14 +49,17 @@ class DeliveryController extends Controller
             'Lng' => $request->get('lng'),
             'Lat' => $request->get('lat'),
             'Phone' => $request->get('phone'),
+            'orderEmail' => $request->get('orderEmail'),
+            'RFullName' => $request->get('RFullName'),
             'CurrentLocation' => $request->get('currentLocation'),
             'OrderStatus' => 0
         ]);
 
         // send sms
-        $this->sendSms($request->get('trackingNum'), $request->get('phone'));
+        // $this->sendSms($request->get('trackingNum'), $request->get('phone'));
 
         // send email
+        Mail::to($request->get('orderEmail'))->send(new OrderCreated($deliveryDetails));
 
         return Redirect::back()->with('success','Order added!');
     }

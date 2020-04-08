@@ -11,13 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::prefix('/')->group(function(){
+    Route::get('/', 'PagesController@searchView');
+    Route::get('/home', 'PagesController@homeView');
+});
 
 Route::prefix('/admin')->group(function(){
     Route::post('/create/delivery', 'DeliveryController@CreateDelivery');

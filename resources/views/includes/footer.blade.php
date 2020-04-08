@@ -1,16 +1,16 @@
 <!-- FOOTER
     ================================================== -->
-    <footer class="py-8 py-md-11 bg-gray-200" style="margin-top:5%;">
+    <footer class="py-8 py-md-11 bg-gray-200" style="margin-top:9%;">
       <div class="container">
         <div class="row">
           <div class="col-12 col-md-4 col-lg-3">
         
             <!-- Brand -->
-            <img src="assets/img/brand.svg" alt="..." class="footer-brand img-fluid mb-2">
+            <img src="{{asset('assets/img/parcelLogo.png')}}" class="navbar-brand-img" alt="..." style="max-height: 3.5rem;">
 
             <!-- Text -->
             <p class="text-gray-700 mb-2">
-              A better way to build.
+              Meet us.
             </p>
 
             <!-- Social -->
@@ -38,6 +38,7 @@
             </ul>
 
           </div>
+
           <div class="col-6 col-md-4 col-lg-2">
         
             <!-- Heading -->
@@ -49,16 +50,6 @@
             <ul class="list-unstyled text-muted mb-6 mb-md-8 mb-lg-0">
               <li class="mb-3">
                 <a href="#!" class="text-reset">
-                  Page Builder
-                </a>
-              </li>
-              <li class="mb-3">
-                <a href="#!" class="text-reset">
-                  UI Kit
-                </a>
-              </li>
-              <li class="mb-3">
-                <a href="#!" class="text-reset">
                   Styleguide
                 </a>
               </li>
@@ -67,14 +58,11 @@
                   Documentation
                 </a>
               </li>
-              <li>
-                <a href="#!" class="text-reset">
-                  Changelog
-                </a>
-              </li>
+              
             </ul>
 
           </div>
+
           <div class="col-6 col-md-4 col-lg-2">
         
             <!-- Heading -->
@@ -84,16 +72,6 @@
 
             <!-- List -->
             <ul class="list-unstyled text-muted mb-6 mb-md-8 mb-lg-0">
-              <li class="mb-3">
-                <a href="#!" class="text-reset">
-                  Documentation
-                </a>
-              </li>
-              <li class="mb-3">
-                <a href="#!" class="text-reset">
-                  Changelog
-                </a>
-              </li>
               <li class="mb-3">
                 <a href="#!" class="text-reset">
                   Pagebuilder
@@ -107,6 +85,7 @@
             </ul>
 
           </div>
+
           <div class="col-6 col-md-4 offset-md-4 col-lg-2 offset-lg-0">
         
             <!-- Heading -->
@@ -126,34 +105,10 @@
                   UI Kit
                 </a>
               </li>
-              <li class="mb-3">
-                <a href="#!" class="text-reset">
-                  Styleguide
-                </a>
-              </li>
-              <li class="mb-3">
-                <a href="#!" class="text-reset">
-                  Documentation
-                </a>
-              </li>
-              <li class="mb-3">
-                <a href="#!" class="text-reset">
-                  Changelog
-                </a>
-              </li>
-              <li class="mb-3">
-                <a href="#!" class="text-reset">
-                  Documentation
-                </a>
-              </li>
-              <li>
-                <a href="#!" class="text-reset">
-                  Changelog
-                </a>
-              </li>
             </ul>
 
           </div>
+
           <div class="col-6 col-md-4 col-lg-2">
         
             <!-- Heading -->
@@ -171,11 +126,6 @@
               <li class="mb-3">
                 <a href="#!" class="text-reset">
                   Changelog
-                </a>
-              </li>
-              <li>
-                <a href="#!" class="text-reset">
-                  Pagebuilder
                 </a>
               </li>
             </ul>

@@ -17,7 +17,8 @@
 
             <!-- Text -->
             <p class="lead mb-0 text-white-75">
-              Keep up to date with what we're working on! Landkit is an ever evolving theme with regular updates. 
+              Automatically check every relevant postal,
+               courier and logistics company website for the current location of your parcel. 
             </p>
 
           </div>
@@ -82,24 +83,53 @@
                 
                 <!-- Badges -->
                 <a class="badge badge-pill badge-secondary-soft" href="blog-search.html">
-                  <span class="h6 text-uppercase">Design</span>
+                  <span class="h6 text-uppercase">USPS</span>
                 </a>
                 <a class="badge badge-pill badge-secondary-soft" href="blog-search.html">
-                  <span class="h6 text-uppercase">Product</span>
+                  <span class="h6 text-uppercase">Canada Post</span>
                 </a>
                 <a class="badge badge-pill badge-secondary-soft" href="blog-search.html">
-                  <span class="h6 text-uppercase">UX</span>
+                  <span class="h6 text-uppercase">Royal Mail</span>
                 </a>
                 <a class="badge badge-pill badge-secondary-soft" href="blog-search.html">
-                  <span class="h6 text-uppercase">Resources</span>
+                  <span class="h6 text-uppercase">DHL</span>
+                </a>
+                <a class="badge badge-pill badge-secondary-soft" href="blog-search.html">
+                  <span class="h6 text-uppercase">China Post</span>
+                </a>
+                <a class="badge badge-pill badge-secondary-soft" href="blog-search.html">
+                  <span class="h6 text-uppercase">Fedex</span>
+                </a>
+                <a class="badge badge-pill badge-secondary-soft" href="blog-search.html">
+                  <span class="h6 text-uppercase">AliExpress</span>
                 </a>
 
               </div>
             </div> <!-- / .row -->
 
+           
+
           </div>
         </div> <!-- / .row -->
       </div>
+
+
+      <!-- Modal -->
+      <div style="padding-top:30%" class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" id="text-div" style="color:red">
+            </div>
+            
+          </div>
+        </div>
+      </div>
+
     </section>
 
     <!-- map
@@ -223,6 +253,12 @@
       
       $('#searchBtn').click(function(){
         var search = $("#search").val();
+        if(search === ""){
+          $("#text-div").html('Please enter your tracking code');
+          $('#exampleModal').modal('show'); 
+          return false;
+        }
+
         $.ajax({
           method: 'get',
           url: '/search',
@@ -231,9 +267,6 @@
           }
         }).then(res => {
           this.data = res;
-          // call map
-          // initMap();
-
           // display order details
           displayContent($("#code"), this.data[0].tracking_num);
           displayContent($("#origin"), this.data[0].origin);
@@ -241,6 +274,9 @@
           displayContent($("#currentLocation"), this.data[0].CurrentLocation);
           displayContent($("#courier"), this.data[0].DeliveredWith);
           displayContent($("#transit"), this.data[0].daysIntransit);
+
+          
+          $('#mapSection').fadeIn('10000');
           
 
           // The location of Uluru
@@ -251,14 +287,16 @@
             var map = new google.maps.Map(document.getElementById('map'), {zoom: 4, center: location});
             // The marker, positioned at Uluru
             var marker = new google.maps.Marker({position: location, map: map});
+        }).catch(err=>{
+          if(err.status === 404){
+
+            $("#text-div").html('Invalid tracking code');
+            $('#exampleModal').modal('show'); 
+            return false;
+          }
         });
-
-        $('#mapSection').fadeIn('10000');
-        
-        
       });
-    });
 
-    
+    });
   </script>
 @endsection

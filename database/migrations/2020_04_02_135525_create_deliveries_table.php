@@ -24,6 +24,8 @@ class CreateDeliveriesTable extends Migration
             $table->float('Lng');
             $table->float('Lat');
             $table->string('Phone');
+            $table->string('orderEmail');
+            $table->string('RFullName')->nullable();
             $table->boolean('OrderStatus');
             $table->timestamps();
         });

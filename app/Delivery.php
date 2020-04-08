@@ -12,7 +12,7 @@ class Delivery extends Model
      * @var array
      */
     protected $fillable = [
-        'tracking_num', 'origin', 'destination','daysIntransit','DeliveredWith','CurrentLocation','Lng','Lat','Phone','OrderStatus',
+        'tracking_num', 'origin', 'destination','daysIntransit','DeliveredWith','CurrentLocation','Lng','Lat','Phone','orderEmail','RFullName','OrderStatus',
     ];
 
 }
