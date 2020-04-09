@@ -4,8 +4,9 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+            <div class="card mb-6 mb-md-0 shadow-light-lg lift lift-lg" style="margin-top:25%!important">
+                <!-- <div class="card-header">{{ __('Admin Login') }}</div> -->
+                <div style="text-align:center;padding-top:3%;font-size:2rem">{{ __('Admin Login') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">

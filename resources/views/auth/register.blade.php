@@ -1,7 +1,8 @@
-@extends('layouts.app')
+
+@extends('layouts.pagesApp')
 
 @section('content')
-<div class="container">
+<!-- <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -73,5 +74,31 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
+<section class="section-border border-primary">
+      <div class="container d-flex flex-column">
+        <div class="row align-items-center justify-content-center no-gutters min-vh-100">
+          <div class="col-12 col-md-5 col-lg-4 py-8 py-md-11">
+            
+            <!-- Heading -->
+            <h1 class="display-3 font-weight-bold text-center">
+              Uh Oh.
+            </h1>
+
+            <!-- Text -->
+            <p class="mb-5 text-center text-muted">
+              Stop trying to hack my site.
+            </p>
+
+            <!-- Link -->
+            <div class="text-center">
+              <a class="btn btn-primary" href="/lander">
+                Back
+              </a>
+            </div>
+
+          </div>
+        </div> <!-- / .row -->
+      </div> <!-- / .container -->
+    </section>
 @endsection

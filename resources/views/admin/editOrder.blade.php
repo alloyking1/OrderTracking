@@ -3,9 +3,9 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <div class="card">
+            <div class="card shadow-light-lg accordion">
                 <div class="card-body">
-                <h4>Edit Order Tracking code {{$content->tracking_num}}</h4>
+                <h4 style="text-align:center;padding-top:3%;font-size:1.5rem">Edit Order</h4>
                 <form method="POST" action="/admin/save/edited/delivery/{{$content->id}}">
                         @csrf
 

@@ -24,7 +24,7 @@
           <!-- Navigation -->
           <ul class="navbar-nav ml-auto">
             <li class="nav-item dropdown">
-              <a href="/home" class="nav-link" id="navbarLandings ">Home</a>
+              <a href="/lander" class="nav-link" id="navbarLandings ">Home</a>
             </li>
 
             <li class="nav-item dropdown">

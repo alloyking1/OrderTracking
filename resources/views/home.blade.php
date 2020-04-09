@@ -6,24 +6,27 @@
         <div class="col-md-12">
             <div class="card">
 
-                <div class="card-body">
-                    <div>Welcome Admin</div>
+                <div class="card-body" style="text-align:center; padding:3%">
+                    <div style="font-size:2rem" class="mb-2">Welcome Admin</div>
+                    <hr>
                     <div class="row">
                         <div class="col-md-4">
-                            <div class="card">
+                            <div class="card mb-6 mb-md-0 shadow-light-lg lift lift-lg" style="padding:15%!important">
                                 <h3>Total Active Orders</h3>
                                 <h1>{{$count}}</h1>
-                                <a href="/admin/show/delivery" class="btn btn-primary">See all</a>
+                                <a href="/admin/show/delivery" class="btn btn-pill btn-primary lift">See all
+                                <i class="fe fe-arrow-right ml-2"></i>
+                                </a>
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="card">
+                            <div class="card mb-6 mb-md-0 shadow-light-lg lift lift-lg" style="padding:15%!important">
                                 <h3>Total SMS Sent</h3>
                                 <h1>0</h1>
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="card">
+                            <div class="card mb-6 mb-md-0 shadow-light-lg lift lift-lg" style="padding:15%!important">
                                 <h3>Total Completed Orders</h3>
                                 <h1>{{$completeOrders}}</h1>
                             </div>
@@ -36,14 +39,14 @@
     <br>
     <div class="row">
         <div class="col-md-12">
-            <div class="card">
+            <div class="card mb-6 mb-md-0 shadow-light-lg lift lift-lg">
                 <div class="card-body">
                 @if (session('success'))
                     <div class="alert alert-success" role="alert">
                         {{ session('success') }}
                     </div>
                 @endif
-                <h4>Create Order</h4>
+                <h4 style="text-align:center;padding-top:3%;font-size:2rem">Create Order</h4>
                 <form method="POST" action="/admin/create/delivery">
                         @csrf
 
@@ -55,7 +58,7 @@
                                     <div class="input-group-prepend">
                                     <span class="input-group-text"><a href="#" id="generateCode" class="btn btn-primary">Generate</a></span>
                                     </div>
-                                    <input id="trackingNum" type="text" class="form-control @error('trackingNum') is-invalid @enderror" value="" name="trackingNum" autofocus>
+                                    <input id="trackingNum" type="text" class="form-control" value="" name="trackingNum" autofocus>
                                     
                                 </div>
                             </div>

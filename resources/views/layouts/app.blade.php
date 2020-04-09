@@ -14,11 +14,25 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet"> -->
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> -->
     <script src="{{asset('assets/libs/jquery/dist/jquery.min.js')}}"></script>
+
+
+
+
+    
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="{{asset('assets/css/theme.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/fonts/Feather/feather.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/libs/flickity/dist/flickity.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/libs/flickity-fade/flickity-fade.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/libs/aos/dist/aos.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/libs/jarallax/dist/jarallax.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/libs/highlightjs/styles/vs2015.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/libs/%40fancyapps/fancybox/dist/jquery.fancybox.min.css')}}">
 </head>
 <body>
     <div id="app">
@@ -45,9 +59,9 @@
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
-                                <li class="nav-item">
+                                <!-- <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
+                                </li> -->
                             @endif
                         @else
                             <li class="nav-item dropdown">

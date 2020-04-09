@@ -54,14 +54,14 @@ class DeliveryController extends Controller
             'CurrentLocation' => $request->get('currentLocation'),
             'OrderStatus' => 0
         ]);
-
+        
         // send sms
-        // $this->sendSms($request->get('trackingNum'), $request->get('phone'));
+        $this->sendSms($request->get('trackingNum'), $request->get('phone'));
 
         // send email
         Mail::to($request->get('orderEmail'))->send(new OrderCreated($deliveryDetails));
 
-        return Redirect::back()->with('success','Order added!');
+        return Redirect::back()->with('success','Order Added!');
     }
 
     public function EditDelivery(Request $request){
@@ -92,12 +92,21 @@ class DeliveryController extends Controller
         $order->Lat = $request->get('lat');
         $order->save();
 
-        return redirect('/admin/show/delivery')->with('message', 'edited');
+        return redirect('/admin/show/delivery')->with('message', 'Order Edited');
     }
 
+    
     public function ShowAllDelivery(){
         $allDelivery = Delivery::all();
         return view('admin/showOrder', compact('allDelivery'));
+    }
+    
+    public function DeleteDeliverySave(Request $request){
+        // find and delete
+        $order = Delivery::find($request->id);
+        $order->delete();
+        return redirect('/admin/show/delivery')->with('delete-message', 'Order Deleted');
+
     }
 
     /**

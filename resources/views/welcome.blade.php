@@ -44,7 +44,7 @@
           <div class="col-12">
             
             <!-- Form search -->
-            <form class="rounded shadow mb-4">
+            <form class="rounded shadow mb-4" onsubmit="return false">
               <div class="input-group input-group-lg">
 
                 <!-- Prepend -->
@@ -105,10 +105,7 @@
                 </a>
 
               </div>
-            </div> <!-- / .row -->
-
-           
-
+            </div> 
           </div>
         </div> <!-- / .row -->
       </div>

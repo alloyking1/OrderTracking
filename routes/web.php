@@ -18,7 +18,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::prefix('/')->group(function(){
     Route::get('/', 'PagesController@searchView');
-    Route::get('/home', 'PagesController@homeView');
+    Route::get('/lander', 'PagesController@homeView');
 });
 
 Route::prefix('/admin')->group(function(){
@@ -26,6 +26,8 @@ Route::prefix('/admin')->group(function(){
     Route::get('/show/delivery', 'DeliveryController@ShowAllDelivery');
     Route::get('/edit/delivery/{id}', 'DeliveryController@EditDelivery');
     Route::post('/save/edited/delivery/{id}', 'DeliveryController@EditDeliverySave');
+
+    Route::get('/delete/delivery/{id}', 'DeliveryController@DeleteDeliverySave');
     Route::get('/generate/code', 'DeliveryController@CreateTrackingCode');
 });
 
