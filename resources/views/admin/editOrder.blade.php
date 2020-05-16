@@ -76,6 +76,19 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="currentLocation" class="col-md-4 col-form-label text-md-right">{{ __('Status') }}</label>
+
+                            <div class="col-md-6">
+                                <select class="form-control" name="status">
+                                    <option value="On Hold">On hold<option/>
+                                    <option value="In Transit">In Transit<option/>
+                                    <option value="Custom Inspection">Custom Inspection<option/>
+                                    <option value="On hold my custom">On hold by custom<option/>
+                                </select>
+                            </div>
+                        </div>
+
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

@@ -26,7 +26,7 @@ class CreateDeliveriesTable extends Migration
             $table->string('Phone');
             $table->string('orderEmail');
             $table->string('RFullName')->nullable();
-            $table->boolean('OrderStatus');
+            $table->string('OrderStatus');
             $table->timestamps();
         });
     }

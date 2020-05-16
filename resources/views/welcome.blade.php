@@ -199,6 +199,9 @@
                     <span class="h6 text-uppercase" id="transit"></span></span>
                     </span></h3>
                     <hr>
+                    <h3>Status: <span class="badge badge-pill badge-light badge-float-inside">
+                    <span class="h6 text-uppercase" id="orderStatus"></span></span>
+                    </span></h3>
 
                   </a>
 
@@ -245,7 +248,7 @@
       let data = {};
 
       var displayContent = function(divId, text){
-        divId.append(text);
+        divId.html(text);
       };
       
       $('#searchBtn').click(function(){
@@ -271,6 +274,7 @@
           displayContent($("#currentLocation"), this.data[0].CurrentLocation);
           displayContent($("#courier"), this.data[0].DeliveredWith);
           displayContent($("#transit"), this.data[0].daysIntransit);
+          displayContent($("#orderStatus"), this.data[0].OrderStatus);
 
           
           $('#mapSection').fadeIn('10000');

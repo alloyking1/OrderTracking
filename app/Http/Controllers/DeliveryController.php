@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Delivery;
 use Illuminate\Support\Facades\Redirect;
+use App\Exceptions\MailNotSentException;
+use App\Exceptions\Handler;
 
 // sms
 use Twilio\Rest\Client;
@@ -56,10 +58,15 @@ class DeliveryController extends Controller
         ]);
         
         // send sms
-        $this->sendSms($request->get('trackingNum'), $request->get('phone'));
+        // $this->sendSms($request->get('trackingNum'), $request->get('phone'));
 
         // send email
-        Mail::to($request->get('orderEmail'))->send(new OrderCreated($deliveryDetails));
+        try{
+            
+            Mail::to($request->get('orderEmail'))->send(new OrderCreated($deliveryDetails));
+        }catch(MailNotSentException $e){
+            return $e->render();
+        }
 
         return Redirect::back()->with('success','Order Added!');
     }
@@ -78,6 +85,7 @@ class DeliveryController extends Controller
             'daysIntransit' => ['required', 'string'],
             'deliveredWithin' => ['required', 'string'],
             'currentLocation' => ['required', 'string'],
+            'status' => ['required', 'string'],
         ]);
 
         // save
@@ -90,6 +98,7 @@ class DeliveryController extends Controller
         $order->CurrentLocation = $request->get('currentLocation');
         $order->Lng = $request->get('lng');
         $order->Lat = $request->get('lat');
+        $order->OrderStatus = $request->get('status');
         $order->save();
 
         return redirect('/admin/show/delivery')->with('message', 'Order Edited');
@@ -169,6 +178,11 @@ class DeliveryController extends Controller
         {
             echo "Error: " . $e->getMessage();
         }
+    }
+
+    /**Resend email and sms */
+    public function smsResend(){
+
     }
     
 }
